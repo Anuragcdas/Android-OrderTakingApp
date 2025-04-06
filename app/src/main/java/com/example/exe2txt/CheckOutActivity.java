@@ -183,6 +183,8 @@ public class CheckOutActivity extends AppCompatActivity {
             quantityText.setText(String.valueOf(quantity));
 
 
+
+
             TotalcheckDiscount.setText("Total Discount:  $" + String.format("%.2f", ((discount * quantity) + offerDiscunt)));
             finalAmount.setText("Grand Total:   $" + Math.round(finalPrice));
 

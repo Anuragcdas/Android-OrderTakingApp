@@ -104,6 +104,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         } else {
 
             holder.spinner.setSelection(quantites.indexOf("More"));
+
         }
 
         holder.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -128,6 +129,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
                         int newQuantity = Integer.parseInt(selectedValue);
                         Executors.newSingleThreadExecutor().execute(() -> {
+
 
                             db.cartDao().updateQuantity(newQuantity, cart.getCartId());
 
@@ -307,6 +309,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
                             updateTotalPrice();
                             notifyDataSetChanged();
+
+
 
 
                         });

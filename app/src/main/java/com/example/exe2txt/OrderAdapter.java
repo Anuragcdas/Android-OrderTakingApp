@@ -3,6 +3,11 @@ package com.example.exe2txt;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +67,32 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
 
         OrderEntity order = orderList.get(position);
 
-        holder.orderId.setText("Id:  " + order.getOrderId() + "\t\t"+DateFormat.getDateFromTimestamp(order.getTimestamp())+"\t\t"+ DateFormat.getTimeFromTimestamp(order.getTimestamp()));
+
+        String date=DateFormat.getDateFromTimestamp(order.getTimestamp());
+        String time=DateFormat.getTimeFromTimestamp(order.getTimestamp());
+
+        String fullText="Id:  " + order.getOrderId() + "\t\t"+date+"\t\t"+ time;
+
+
+        int dateStart=fullText.indexOf(date);
+        int dateEnd=dateStart+date.length();
+
+        int timeStart=fullText.indexOf(time);
+        int timeEnd=timeStart+time.length();
+
+
+
+        SpannableString spannableString=new SpannableString(fullText);
+
+        spannableString.setSpan(new ForegroundColorSpan(Color.BLUE),dateStart,dateEnd,spannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(Typeface.ITALIC),timeStart,timeEnd,spannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        spannableString.setSpan(new ForegroundColorSpan(Color.BLUE),timeStart,timeEnd,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new StyleSpan(Typeface.ITALIC),timeStart,timeEnd,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
+
+        holder.orderId.setText(spannableString);
         holder.finalorderprice.setText("Order Prce:  $" + order.getFinalPrice());
         holder.orderQuantity.setText("Status:  " + order.getOrderStatus());
 
