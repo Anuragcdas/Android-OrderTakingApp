@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BulkCheckOutActivity">
+
+
+
+    <!-- Material Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/custom_blue"
+        app:navigationIcon="@drawable/iosarrowback"
+        app:title="Check Out"
+        app:titleTextColor="@color/white" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/bulkImage"
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            android:src="@drawable/bulk"
+            android:paddingBottom="4dp"
+            />
+
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/totalBulkProducts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total No Of Products"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="4dp"
+        android:layout_marginHorizontal="16dp"
+
+        />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/totalActualBulkPrice"
+        android:layout_width="match_parent"
+        android:text="Total price of products"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textColor="#081A2E"
+        android:textStyle="italic"
+        android:paddingBottom="4dp"
+        android:layout_marginHorizontal="16dp"
+
+        />
+
+
+
+
+
+
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/totalBulkDiscount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Discount Price"
+        android:textColor="@android:color/holo_green_light"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:paddingBottom="4dp"
+        android:layout_marginHorizontal="16dp"
+
+        />
+
+
+    <com.google.android.material.textview.MaterialTextView
+        android:layout_marginHorizontal="16dp"
+        android:id="@+id/totalBulkPrice"
+        android:layout_width="match_parent"
+        android:text="Grand Total"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#761109"
+        android:paddingBottom="16dp"
+
+        />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/flatDiscount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Discount Price"
+        android:textColor="#C1180C"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:paddingBottom="2dp"
+        android:layout_marginHorizontal="16dp"
+        android:visibility="invisible"
+
+        />
+
+
+
+
+
+    <com.google.android.material.button.MaterialButton
+
+        android:id="@+id/ConfirmButtom"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="Please Confirm Order"
+
+        />
+
+
+
+
+
+</LinearLayout>

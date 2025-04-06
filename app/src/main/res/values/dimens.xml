@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="icon_small_width">16dp</dimen>  <!-- Use a reasonable size -->
+    <dimen name="icon_small_height">16dp</dimen> <!-- Use a reasonable size -->
+
+
+    <dimen name="icon_width">10dp</dimen>   <!-- Very small size -->
+    <dimen name="icon_height">10dp</dimen>
+</resources>

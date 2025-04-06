@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="checkoutProductTitle" type="id" />
+    <item name="checkoutPrice" type="id" />
+    <item name="checkoutDiscountPercentage" type="id" />
+    <item name="checkoutDiscountAmount" type="id" />
+    <item name="checkoutFinalAmount" type="id" />
+    <item name="checkoutStock" type="id" />
+</resources>

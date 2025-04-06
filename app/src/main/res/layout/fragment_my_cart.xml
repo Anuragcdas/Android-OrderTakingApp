@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:theme="@style/ThemeOverlay.Exe2Txt.FullscreenContainer"
+    tools:context=".MyCartFragment">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/custom_blue"
+        app:title="My Cart"
+        app:titleTextColor="@color/white"
+        android:layout_alignParentTop="true" />
+
+    <!-- RecyclerView for cart items -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_below="@id/toolbar"
+        android:layout_above="@+id/cartCardView"
+        />
+
+
+    <!-- Empty Cart Image -->
+    <ImageView
+        android:id="@+id/noCartImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cartempty"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <!-- Empty Cart Text -->
+    <TextView
+        android:id="@+id/noCartText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="YOUR CART IS EMPTY"
+        android:textSize="30sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_below="@id/noCartImage"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:visibility="gone" />
+
+    <!-- Bottom CardView for Total Price and Buy Button -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cartCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
+        app:cardElevation="4dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <!-- Total Price TextView -->
+            <TextView
+                android:id="@+id/totalPriceTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Total: $0.00"
+                android:textSize="18sp"
+                android:textColor="#065609"
+                android:layout_weight="1" />
+
+            <!-- Buy All Button -->
+            <Button
+                android:id="@+id/buyAllButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buy All Products"
+                android:textSize="16sp"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/custom_blue" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:strokeColor="@android:color/darker_gray"
+    app:strokeWidth="1dp"
+    tools:context=".ProductDetailActivity">
+
+    <!-- Progress Bar with Center Alignment -->
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:background="@drawable/progress_background" />
+
+    <!-- Toolbar at the Top -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/custom_blue"
+        app:navigationIcon="@drawable/arrowback"
+        app:title="ProductDetails"
+        app:titleTextColor="@color/white" />
+
+    <!-- Main Container Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Product Image with Margin at Bottom -->
+        <ImageView
+            android:id="@+id/detailProductImage"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginBottom="16dp"
+            android:scaleType="fitCenter"
+            android:contentDescription="Product Image" />
+
+        <!-- Product Title with Bottom Margin -->
+        <TextView
+            android:id="@+id/detailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="8dp"
+            android:layout_marginHorizontal="6dp"
+            android:paddingBottom="8dp" />
+
+        <!-- Product Price with Bottom Margin -->
+        <TextView
+            android:id="@+id/dettailProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_green_dark"
+            android:layout_marginBottom="8dp"
+            android:layout_marginHorizontal="6dp"
+            android:paddingBottom="8dp" />
+
+        <!-- Product Description with Bottom Margin -->
+        <TextView
+            android:id="@+id/detailProductDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#6F6565"
+            android:layout_marginBottom="14dp"
+            android:layout_marginHorizontal="6dp"
+            android:paddingBottom="14dp" />
+
+        <!-- Horizontal Layout for Buttons with Spacing -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <!-- Add to Cart Button with Padding and Margin -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addToCartButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Add to Cart"
+                app:backgroundTint="#D4DC86"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_marginEnd="8dp"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="12dp" />
+
+            <!-- Buy Now Button with Padding and Margin -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buyNowButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Buy Now"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:backgroundTint="#D53D32"
+                android:textColor="@color/white"
+                android:paddingVertical="8dp"
+                android:paddingHorizontal="12dp" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Shopy</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="increase_quantity">+</string>
+    <string name="decrease_quantity">-</string>
+</resources>
