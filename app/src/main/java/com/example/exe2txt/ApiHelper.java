@@ -21,7 +21,7 @@ public class ApiHelper {
 
     }
 
-
+//prevent multiple threads creating multiple instances
     public static synchronized ApiHelper getInstance(Context context) {
 
 
@@ -29,13 +29,15 @@ public class ApiHelper {
             instance = new ApiHelper(context);
         }
 
-        return instance;
+        return instance;// return singleton instance of api helper
     }
 
     public RequestQueue getRequestQueue() {
         return requestQueue;
     }
 
+
+    //generic method that adds request to queue whether it is array,obj e t c
 
     public <T> void addToRequestQueue(Request<T> req) {
         getRequestQueue().add(req);

@@ -50,6 +50,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public void setCartPriceListener(CartPriceListener listener) {
 
         this.priceListener = listener;
+
     }
 
     private void updateTotalPrice() {
@@ -106,6 +107,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             holder.spinner.setSelection(quantites.indexOf("More"));
 
         }
+
+
+
+
+
 
         holder.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -165,6 +171,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             if (product != null) {
 
                 ((Activity) context).runOnUiThread(() -> {
+
+
                     //  holder.productStock.setText(product.getStock() > 0 ? "In Stock" : "Out Of Stock");
                     // holder.productStock.setTextColor(product.getStock() > 0 ? Color.GRAY : Color.RED);
                 });
@@ -217,6 +225,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
     }
 
+
+
+
+
+
     @Override
     public int getItemCount() {
         return cartList == null ? 0 : cartList.size();
@@ -233,7 +246,8 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
 
 
             ((Activity) context).runOnUiThread(() -> {
-                int currentPosition = holder.getBindingAdapterPosition(); // Use this instead of getAdapterPosition()
+                int currentPosition = holder.getBindingAdapterPosition();
+                // Use this instead of getAdapterPosition()
                 if (currentPosition != RecyclerView.NO_POSITION && currentPosition < cartList.size()) {
 
                     cartList.remove(currentPosition);
@@ -358,6 +372,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
         MaterialTextView productName, productPrice, productStock;
         MaterialButton btn_remove, btn_buy;
         Spinner spinner;
+        boolean isUserInteraction = false;
 
 
         public CartViewHolder(@NonNull View itemView) {

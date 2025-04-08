@@ -71,7 +71,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         String date=DateFormat.getDateFromTimestamp(order.getTimestamp());
         String time=DateFormat.getTimeFromTimestamp(order.getTimestamp());
 
-        String fullText="Id:  " + order.getOrderId() + "\t\t"+date+"\t\t"+ time;
+        String fullText="Id:  "+ order.getOrderId()+ "\t\t" + "("+date+"\t\t"+ time+")";
 
 
         int dateStart=fullText.indexOf(date);
@@ -84,10 +84,10 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
 
         SpannableString spannableString=new SpannableString(fullText);
 
-        spannableString.setSpan(new ForegroundColorSpan(Color.BLUE),dateStart,dateEnd,spannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new ForegroundColorSpan(Color.GRAY),dateStart,dateEnd,spannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new StyleSpan(Typeface.ITALIC),timeStart,timeEnd,spannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        spannableString.setSpan(new ForegroundColorSpan(Color.BLUE),timeStart,timeEnd,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(new ForegroundColorSpan(Color.GRAY),timeStart,timeEnd,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         spannableString.setSpan(new StyleSpan(Typeface.ITALIC),timeStart,timeEnd,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 

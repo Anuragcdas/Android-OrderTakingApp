@@ -17,8 +17,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
 import androidx.core.view.MenuHost;
 import androidx.core.view.MenuProvider;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -37,7 +40,6 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
     private View view;
-//    private Toolbar toolbar;
 
     private  AppDatabase appDatabase;
 
@@ -47,11 +49,12 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        // UI COMPONENTS INITIALISATION
 
         progressBar = view.findViewById(R.id.progressbar);
         progressBar.setVisibility(View.VISIBLE);
 
-        // UI COMPONENTS
+
 
         //Setup For ToolBar
         Toolbar toolbar = view.findViewById(R.id.toolbar);
@@ -77,11 +80,11 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        BottomNavigationView bottomNavigationView;
+
 
         SearchView searchView = view.findViewById(R.id.searchView);
 
-        bottomNavigationView = getActivity().findViewById(R.id.navagation_bar);
+
 
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -107,47 +110,49 @@ public class HomeFragment extends Fragment {
 
         appDatabase=AppDatabase.getInstance(requireContext());
 
-
-
-
-
         appDatabase.cartDao().getAllCart().observe(getViewLifecycleOwner(),carts -> {
+
 
             int itemCount=0;
 
-            for(CartEntity cart: carts){
+            for(CartEntity cart:carts){
 
                 itemCount+=cart.getQuantity();
             }
 
+            if(getActivity()!=null){
 
-            if(getActivity() != null){
-
-
-
-
+                BottomNavigationView bottomNavigationView=getActivity().findViewById(R.id.navagation_bar);
 
                 if(bottomNavigationView!= null){
 
                     BadgeDrawable badge=bottomNavigationView.getOrCreateBadge(R.id.nav_cart);
 
                     if(itemCount>0){
+
                         badge.setVisible(true);
                         badge.setNumber(itemCount);
                     }else {
 
-                        badge.clearNumber();
                         badge.setVisible(false);
+                        badge.clearNumber();
                     }
 
+
                 }
-
-
 
 
             }
 
 
+
+        });
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(view.findViewById(R.id.fragment_home), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, 0); // no bottom
+            return insets;
         });
 
 

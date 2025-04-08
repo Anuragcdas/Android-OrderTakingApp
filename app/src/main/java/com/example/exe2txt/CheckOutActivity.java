@@ -152,7 +152,7 @@ public class CheckOutActivity extends AppCompatActivity {
 
         if (quantity >= stock) {
             btn_inc.setEnabled(false); // Disable increment button
-            btn_inc.setAlpha(0.5f); // Make button look disabled (optional)
+            btn_inc.setAlpha(0.05f); // Make button look disabled (optional)
         } else {
             btn_inc.setEnabled(true); // Enable increment button
             btn_inc.setAlpha(1.0f); // Restore original appearance
@@ -204,8 +204,7 @@ public class CheckOutActivity extends AppCompatActivity {
         SpannableString spannableString = new SpannableString(fullText);
 
         spannableString.setSpan(new ForegroundColorSpan(Color.DKGRAY),
-                0, priceText.length() + String.valueOf(productPrice).length(),
-                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                0, priceText.length() + String.valueOf(productPrice).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
 
         spannableString.setSpan(new ForegroundColorSpan(Color.RED),
