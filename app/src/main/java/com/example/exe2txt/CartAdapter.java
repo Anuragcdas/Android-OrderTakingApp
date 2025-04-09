@@ -43,6 +43,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     private List<String> quantites = new ArrayList<>(Arrays.asList("1", "2", "3", "4", "More"));
 
     public CartAdapter(Context context, List<CartEntity> cartList) {
+
         this.context = context;
         this.cartList = cartList;
     }
